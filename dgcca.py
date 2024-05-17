@@ -4,6 +4,7 @@ Created on Mon Mar  6 15:01:27 2017
 
 @author: HShu
 """
+
 from numpy.linalg import norm
 import numpy as np
 import scipy as sp
@@ -101,10 +102,10 @@ def dGCCA(
     V_X = [[] for _ in range(num_sets)]
     C_k = [[] for _ in range(num_sets)]
 
-    if rankX == None:
+    if rankX is None:
         rankX = [None for _ in range(num_sets)]
 
-    if r_star == None:
+    if r_star is None:
         r_star = [None for _ in range(num_sets)]
 
     for k in range(num_sets):
@@ -340,9 +341,9 @@ def dGCCA(
                                 )
                                 if rejection:
                                     I_Delta_ell[t] = 0
-                                    alpha_jk[
-                                        t
-                                    ] = np.inf  # indicate no alpha_jk here
+                                    alpha_jk[t] = (
+                                        np.inf
+                                    )  # indicate no alpha_jk here
                                 else:
                                     alpha_jk[t] = 0.5 * (
                                         corr_wl_zjl + corr_wl_zkl
@@ -350,9 +351,9 @@ def dGCCA(
                         else:
                             if I_Delta[I_0.index(ell), t] == -1:
                                 I_Delta_ell[t] = 0
-                                alpha_jk[
-                                    t
-                                ] = np.inf  # indicate no alpha_jk here
+                                alpha_jk[t] = (
+                                    np.inf
+                                )  # indicate no alpha_jk here
                             elif I_Delta[I_0.index(ell), t] == 1:
                                 alpha_jk[t] = 0.5 * (
                                     corr_wl_zjl
